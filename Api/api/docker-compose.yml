@@ -1,0 +1,25 @@
+version: "3.9"
+
+networks:
+  main:
+    driver: bridge
+
+services:
+  postgres:
+    image: postgres
+    hostname: postgres
+    environment:
+      POSTGRES_DB: "likbus"
+      POSTGRES_USER: "user"
+      POSTGRES_PASSWORD: "password"
+    ports:
+      - "5432:5432"
+    networks:
+      - main
+
+  api:
+    build: .
+    ports:
+      - "8081:8080"
+    networks:
+      - main

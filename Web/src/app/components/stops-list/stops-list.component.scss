@@ -1,0 +1,43 @@
+@import "../../../mixins";
+
+:host {
+  display: flex;
+  flex-flow: column nowrap;
+  gap: 16px;
+}
+
+div {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  background-color: $secondaryBackground;
+  color: $onSecondaryBackground;
+  padding: 8px 16px;
+  box-shadow: $boxShadow1;
+  border-radius: 8px;
+  gap: 16px;
+}
+
+p {
+  flex-grow: 1;
+}
+
+.icon {
+  border-radius: 50%;
+  font-size: 32px;
+  width: 48px;
+  height: 48px;
+  padding: 8px;
+  cursor: pointer;
+}
+
+a {
+  background-color: $primary;
+  color: $onPrimary;
+}
+
+span {
+  background-color: $accent;
+  color: $onAccent;
+}

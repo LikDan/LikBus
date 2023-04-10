@@ -1,0 +1,104 @@
+@import "../../../mixins";
+
+:host {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  flex-flow: column;
+  gap: 64px;
+}
+
+header {
+  display: grid;
+  grid-template-areas: "stop fav" "bus fav";
+  grid-template-columns: 1fr auto;
+  grid-gap: 16px;
+  width: 60vw;
+  background-color: $secondaryBackground;
+  color: $onSecondaryBackground;
+  padding: 8px 16px;
+  border-radius: 16px;
+  box-shadow: $boxShadow1;
+
+  h1 {
+    grid-area: stop;
+  }
+
+  h2 {
+    grid-area: bus;
+  }
+
+  span {
+    grid-area: fav;
+  }
+}
+
+header span {
+  align-self: center;
+  width: 56px;
+  height: 56px;
+  font-size: 32px;
+  background-color: $accent;
+  color: $onAccent;
+  border-radius: 12px;
+  padding: 12px;
+}
+
+main {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+  gap: 32px;
+  background-color: $secondaryBackground;
+  color: $onSecondaryBackground;
+  padding: 32px;
+  border-radius: 8px;
+  box-shadow: $boxShadow1;
+  max-height: 60vh;
+}
+
+section {
+  display: flex;
+  flex-flow: row nowrap;
+  gap: 32px;
+  height: calc(60vh - 32px * 2);
+  overflow: scroll;
+}
+
+.times {
+  display: flex;
+  flex-flow: column;
+  gap: 16px;
+}
+
+section span {
+  display: flex;
+  gap: 16px;
+  align-items: center;
+}
+
+gmap {
+  height: calc(60vh - 32px * 2);
+  width: calc(80vw - 32px * 2 - 200px * 2);
+  min-width: 500px;
+}
+
+@media (orientation: portrait) and (max-width: 850px) {
+  header {
+    width: 80vw;
+  }
+
+  main {
+    max-height: unset;
+  }
+
+  section {
+    height: unset;
+  }
+
+  gmap {
+    width: calc(100vw - 32px * 2);
+    min-width: 300px;
+  }
+}

@@ -1,0 +1,25 @@
+@import "mixins";
+
+body {
+  margin: 0;
+  background-color: $background;
+  color: $onBackground;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+h1, h2, h3, h4, h5, h6, p, a, span {
+  margin: 0;
+}
+
+a {
+  all: unset;
+  box-sizing: border-box;
+}
+
+.icon {
+  font-family: 'Material Icons Round', serif;
+  user-select: none;
+}

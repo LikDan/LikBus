@@ -1,0 +1,5 @@
+<div *ngFor="let route of routes">
+  <p>{{route.stop.title}} - {{route.bus.number}}</p>
+  <span class="icon" (click)="toggleFavorite(route)">{{isFavorite(route) ? 'favorite' : 'favorite_outline'}}</span>
+  <a class="icon" [routerLink]="urlPrefix + '/stops/' + route.stop.id + '/buses/' + route.bus.id + '/' + urlSuffix">arrow_forward</a>
+</div>

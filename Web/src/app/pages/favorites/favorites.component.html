@@ -1,0 +1,11 @@
+<section>
+  <a routerLinkActive="selected" routerLink="/favorites/stops">{{'STOPS' | translate}}</a>
+  <a routerLinkActive="selected" routerLink="/favorites/buses">{{'BUSES' | translate}}</a>
+  <a routerLinkActive="selected" routerLink="/favorites/routes">{{'ROUTES' | translate}}</a>
+</section>
+
+<ng-container *ngIf="listType$ | async as listType">
+  <app-buses-list *ngIf="listType == 'buses'" urlPrefix="/find/" [buses]="$any(items$ | async)"/>
+  <app-stops-list *ngIf="listType == 'stops'" urlPrefix="/find/" [stops]="$any(items$ | async)"/>
+  <app-routes-list *ngIf="listType == 'routes'" urlPrefix="/find/" [routes]="$any(items$ | async)"/>
+</ng-container>

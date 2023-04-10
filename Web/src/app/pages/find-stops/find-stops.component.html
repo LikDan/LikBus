@@ -1,0 +1,4 @@
+<ng-container *ngIf="bus$ | async as bus">
+  <h1>{{bus.bus.number}}</h1>
+  <app-stops-list [urlPrefix]="'/find/buses/' + bus.bus.id" [stops]="bus.stops"/>
+</ng-container>

@@ -1,0 +1,29 @@
+<ng-container *ngIf="route$ | async as route">
+  <header>
+    <h1>{{route.stop.title}}</h1>
+    <h2>{{route.bus.number}}</h2>
+    <span class="icon" (click)="toggleFavorite(route)">{{isFavorite(route) ? 'favorite' : 'favorite_outline'}}</span>
+  </header>
+
+  <main>
+    <section>
+      <div class="times">
+      <span *ngFor="let time of route.times">
+        <p class="icon">schedule</p>
+        {{time}}
+      </span>
+      </div>
+      <div class="times">
+      <span *ngFor="let time of route.times">
+        <p class="icon">schedule</p>
+        {{time}}
+      </span>
+      </div>
+    </section>
+    <gmap
+      [label]="route.stop.title"
+      [lat]="route.stop.lat"
+      [lng]="route.stop.lng"
+    />
+  </main>
+</ng-container>

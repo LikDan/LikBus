@@ -1,0 +1,9 @@
+<ng-container *ngIf="stop$ | async as stop">
+  <h1>{{stop.stop.title}}</h1>
+  <gmap
+    [label]="stop.stop.title"
+    [lat]="stop.stop.lat"
+    [lng]="stop.stop.lng"
+  />
+  <app-buses-list [urlPrefix]="'/find/stops/' + stop.stop.id" [buses]="stop.buses"/>
+</ng-container>
