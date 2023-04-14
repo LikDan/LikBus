@@ -1,11 +1,12 @@
-import {Component, Input} from '@angular/core';
+import {ChangeDetectionStrategy, Component, Input} from '@angular/core';
 import {Bus} from "../../models/bus";
 import {FavoritesService} from "../../shared/favorites.service";
 
 @Component({
   selector: 'app-buses-list',
   templateUrl: './buses-list.component.html',
-  styleUrls: ['./buses-list.component.scss']
+  styleUrls: ['./buses-list.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class BusesListComponent {
   @Input() urlPrefix: string = ""

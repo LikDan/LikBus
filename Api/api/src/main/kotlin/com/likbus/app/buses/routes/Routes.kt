@@ -4,7 +4,6 @@ import com.likbus.app.buses.models.Bus
 import com.likbus.app.buses.models.FullBus
 import com.likbus.app.buses.repository.BusEntity
 import com.likbus.app.buses.repository.tables.BusTable
-import com.likbus.app.stops.models.FullStop
 import com.likbus.app.stops.repository.tables.FullStopTable
 import com.likbus.app.stops.repository.tables.FullStopTable.fullStop
 import com.likbus.app.stops.repository.tables.StopTable
@@ -17,9 +16,17 @@ import org.jetbrains.exposed.sql.transactions.transaction
 import java.util.*
 
 fun Route.buses() {
+    get("/buses/types") {
+        val string: List<String> = transaction {
+            BusEntity.all().distinctBy { it.type }.map { it.type }.sorted()
+        }
+        call.respond(string)
+    }
+
     get("/buses") {
+        val type = this.context.request.queryParameters["type"]?.uppercase()
         val buses: List<Bus> = transaction {
-            BusEntity.all().map { it.dto() }
+            (if (type.isNullOrEmpty()) BusEntity.all() else BusEntity.find { BusTable.type eq type }).map { it.dto() }
         }
         call.respond(buses)
     }

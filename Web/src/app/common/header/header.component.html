@@ -2,3 +2,13 @@
   <a routerLink="find">{{'FIND' | translate}}</a>
   <a routerLink="favorites">{{'FAVORITES' | translate}}</a>
 </nav>
+<section>
+  <select (change)="theme($any($event.target))">
+    <option value="dark" [selected]="currentTheme === 'dark'">{{"DARK" | translate}}</option>
+    <option value="light" [selected]="currentTheme === 'light'">{{"LIGHT" | translate}}</option>
+  </select>
+  <select (change)="language($any($event.target))">
+    <option value="en-US" [selected]="currentLanguage === 'en-US'">{{"ENGLISH" | translate}}</option>
+    <option value="ru-RU" [selected]="currentLanguage === 'ru-RU'">{{"RUSSIAN" | translate}}</option>
+  </select>
+</section>

@@ -14,16 +14,21 @@ section {
   width: 100%;
   max-width: 400px;
   border-radius: 8px;
-  overflow: hidden;
+  overflow: scroll hidden;
+
+  &.types {
+    max-width: fit-content;
+  }
 }
 
 a {
   flex-grow: 1;
   text-align: center;
-  display: block;
   padding: 16px 8px;
   background-color: $accent;
   color: $onAccent;
+  display: grid;
+  place-items: center;
 
   &.selected {
     background-color: $primary;

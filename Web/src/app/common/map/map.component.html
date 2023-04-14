@@ -1,6 +1,19 @@
-<google-map [center]="point" height="100%" width="100%">
+<google-map *ngIf="center as point" [center]="point" [zoom]="18" height="100%" width="100%">
   <map-marker
+    *ngIf="stopPoint as point"
     [position]="point"
-    [label]="{text: label}"
+    [label]="{text: stopLabel}"
+  />
+  <map-marker
+    *ngIf="busStartPoint as point"
+    [position]="point"
+    [options]="{icon: '/assets/stop.png'}"
+    [label]="{text: startLabel}"
+  />
+  <map-marker
+    *ngIf="busEndPoint as point"
+    [position]="point"
+    [options]="{icon: '/assets/stop.png'}"
+    [label]="{text: endLabel}"
   />
 </google-map>

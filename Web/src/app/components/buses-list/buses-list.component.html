@@ -1,5 +1,9 @@
 <div *ngFor="let bus of buses">
-  <p>{{bus.number}}</p>
+  <p class="type">{{bus.type | translate}}</p>
+  <p class="number">{{bus.number | translate}}</p>
+  <p class="start">{{bus.start | translate}}</p>
+  <p class="divider">-</p>
+  <p class="end">{{bus.end | translate}}</p>
   <span class="icon" (click)="toggleFavorite(bus)">{{isFavorite(bus) ? 'favorite' : 'favorite_outline'}}</span>
   <a class="icon" [routerLink]="urlPrefix + '/buses/' + bus.id + '/' + urlSuffix">arrow_forward</a>
 </div>

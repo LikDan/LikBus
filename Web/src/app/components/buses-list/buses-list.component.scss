@@ -7,7 +7,9 @@
 }
 
 div {
-  display: flex;
+  display: grid;
+  grid-template-areas: "type type type favorite goto" "number number number favorite goto" "start divider end favorite goto";
+  grid-template-columns: auto auto 1fr auto auto;
   align-items: center;
   justify-content: space-between;
   width: 100%;
@@ -19,8 +21,22 @@ div {
   gap: 16px;
 }
 
-p {
-  flex-grow: 1;
+.type {
+  grid-area: type;
+}
+
+.number {
+  grid-area: number;
+}
+
+.start {
+  grid-area: start;
+}
+
+.end {
+  grid-area: end;
+  text-overflow: ellipsis;
+  overflow: hidden;
 }
 
 .icon {
@@ -32,12 +48,14 @@ p {
   cursor: pointer;
 }
 
-a {
-  background-color: $primary;
-  color: $onPrimary;
-}
-
 span {
+  grid-area: favorite;
   background-color: $accent;
   color: $onAccent;
+}
+
+a {
+  grid-area: goto;
+  background-color: $primary;
+  color: $onPrimary;
 }

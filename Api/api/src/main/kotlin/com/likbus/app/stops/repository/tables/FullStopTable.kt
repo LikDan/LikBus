@@ -22,7 +22,14 @@ object FullStopTable : Table("fullstops") {
 
         val bus = Bus(
             id = this[BusTable.id].toString(),
-            number = this[BusTable.number]
+            number = this[BusTable.number],
+            start = this[BusTable.start],
+            end = this[BusTable.end],
+            startLng = this[BusTable.startLng],
+            startLat = this[BusTable.startLat],
+            endLng = this[BusTable.endLng],
+            endLat = this[BusTable.endLat],
+            type = this[BusTable.type]
         )
 
         return FullStopEntity(stop, bus)

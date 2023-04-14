@@ -17,9 +17,10 @@ import { MapComponent } from './common/map/map.component';
 import {GoogleMapsModule} from "@angular/google-maps";
 import { FavoritesComponent } from './pages/favorites/favorites.component';
 import { RoutesListComponent } from './components/routes-list/routes-list.component';
+import {Translate} from "./shared/translate";
 
 export function HttpLoaderFactory(http: HttpClient) {
-  return new TranslateHttpLoader(http);
+  return new Translate(http);
 }
 
 @NgModule({
@@ -41,6 +42,7 @@ export function HttpLoaderFactory(http: HttpClient) {
     AppRoutingModule,
     HttpClientModule,
     TranslateModule.forRoot({
+      defaultLanguage: 'en-US',
       loader: {
         provide: TranslateLoader,
         useFactory: HttpLoaderFactory,
@@ -51,4 +53,9 @@ export function HttpLoaderFactory(http: HttpClient) {
   ],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {
+  constructor() {
+
+  }
+
+}

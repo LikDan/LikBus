@@ -64,12 +64,23 @@ section {
   gap: 32px;
   height: calc(60vh - 32px * 2);
   overflow: scroll;
+  background-color: inherit;
+  color: inherit
+}
+
+.type {
+  position: sticky;
+  top: 0;
+  background-color: inherit;
+  color: inherit
 }
 
 .times {
   display: flex;
   flex-flow: column;
   gap: 16px;
+  background-color: inherit;
+  color: inherit
 }
 
 section span {

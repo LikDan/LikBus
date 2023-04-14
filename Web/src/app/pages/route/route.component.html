@@ -1,29 +1,30 @@
 <ng-container *ngIf="route$ | async as route">
   <header>
-    <h1>{{route.stop.title}}</h1>
-    <h2>{{route.bus.number}}</h2>
+    <h1>{{route.stop.title | translate}}</h1>
+    <h2>{{route.bus.number | translate}}</h2>
     <span class="icon" (click)="toggleFavorite(route)">{{isFavorite(route) ? 'favorite' : 'favorite_outline'}}</span>
   </header>
 
   <main>
     <section>
-      <div class="times">
-      <span *ngFor="let time of route.times">
-        <p class="icon">schedule</p>
-        {{time}}
-      </span>
-      </div>
-      <div class="times">
-      <span *ngFor="let time of route.times">
-        <p class="icon">schedule</p>
-        {{time}}
-      </span>
+      <div class="times" *ngFor="let type of route.types">
+        <span class="type">{{type.type | translate}}</span>
+        <span *ngFor="let time of type.times">
+          <p class="icon">schedule</p>
+          {{time}}
+        </span>
       </div>
     </section>
     <gmap
-      [label]="route.stop.title"
-      [lat]="route.stop.lat"
-      [lng]="route.stop.lng"
+      [stopLabel]="route.stop.title"
+      [stopLat]="route.stop.lat"
+      [stopLng]="route.stop.lng"
+      [startLabel]="route.bus.start"
+      [startLat]="route.bus.startLat"
+      [startLng]="route.bus.startLng"
+      [endLabel]="route.bus.end"
+      [endLat]="route.bus.endLat"
+      [endLng]="route.bus.endLng"
     />
   </main>
 </ng-container>

@@ -12,6 +12,7 @@ object RouteStopsTable : Table("route_stops") {
     val stop = reference("stop_id", StopTable, ReferenceOption.CASCADE, ReferenceOption.CASCADE)
     val bus = reference("bus_id", BusTable, ReferenceOption.CASCADE, ReferenceOption.CASCADE)
     val time = long("time")
+    val type = varchar("type", 9)
 
     private fun normalizeTime(time: Long): String {
         return if (time < 10) "0${time}" else "$time"
@@ -21,6 +22,6 @@ object RouteStopsTable : Table("route_stops") {
         val fullStop = this.fullStop()
         val time = this[time]
         val timeStr = "${normalizeTime(time / 60)}:${normalizeTime(time % 60)}:00"
-        return RouteStopsEntity(stop = fullStop.stop, bus = fullStop.bus, time = timeStr)
+        return RouteStopsEntity(stop = fullStop.stop, bus = fullStop.bus, time = timeStr, type = this[type])
     }
 }

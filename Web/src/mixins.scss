@@ -1,10 +1,28 @@
-$primary: #3F51B5;
-$accent: #FF4081;
-$background: #121212;
-$secondaryBackground: #212121;
-$onPrimary: #FFFFFF;
-$onAccent: #FFFFFF;
-$onBackground: #FFFFFF;
-$onSecondaryBackground: #FFFFFF;
+$primary: var(--primary, #3F51B5);
+$accent: var(--accent, #FF4081);
+$background: var(--background, #121212);
+$secondaryBackground: var(--secondaryBackground, #212121);
+$onPrimary: var(--onPrimary, #FFFFFF);
+$onAccent: var(--onAccent, #FFFFFF);
+$onBackground: var(--onBackground, #FFFFFF);
+$onSecondaryBackground: var(--onSecondaryBackground, #FFFFFF);
 
-$boxShadow1: 0px 2px 4px rgba(0, 0, 0, 0.5)
+$boxShadow1: var(--boxShaddow);
+
+:root {
+  --boxShaddow: 0px 4px 8px rgba(0, 0, 0, 0.5);
+}
+
+.light {
+  --primary: #1976D2;
+  --accent: #F50057;
+  --background: #FFFFFF;
+  --secondaryBackground: #F5F5F5;
+  --onPrimary: #FFFFFF;
+  --onAccent: #FFFFFF;
+  --onBackground: #212121;
+  --onSecondaryBackground: #212121;
+
+  --boxShaddow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+}
+

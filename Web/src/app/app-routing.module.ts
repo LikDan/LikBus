@@ -8,7 +8,7 @@ import {FavoritesComponent} from "./pages/favorites/favorites.component";
 
 const routes: Routes = [
   {path: "find/stops", component: FindComponent},
-  {path: "find/buses", component: FindComponent},
+  {path: "find/buses/:type", component: FindComponent},
   {path: "find/stops/:id/buses", component: FindBusesComponent},
   {path: "find/buses/:id/stops", component: FindStopsComponent},
   {path: "find/stops/:stopID/buses/:busID/schedule", component: RouteComponent},
@@ -19,8 +19,8 @@ const routes: Routes = [
   {path: "favorites/routes", component: FavoritesComponent},
 
 
-  {path: "", pathMatch: 'full', redirectTo: "find/buses"},
-  {path: "find", pathMatch: 'full', redirectTo: 'find/buses'},
+  {path: "", pathMatch: 'full', redirectTo: "find/buses/bus"},
+  {path: "find", pathMatch: 'full', redirectTo: 'find/buses/bus'},
   {path: "find/stops/:id", pathMatch: 'full', redirectTo: 'find/stops/:id/buses'},
   {path: "find/buses/:id", pathMatch: 'full', redirectTo: 'find/buses/:id/stops'},
   {path: "find/stops/:stopID/buses/:busID", pathMatch: 'full', redirectTo: 'find/stops/:stopID/buses/:busID/schedule'},
@@ -29,7 +29,7 @@ const routes: Routes = [
   {path: "favorites", pathMatch: 'full', redirectTo: "favorites/buses"},
 
 
-  {path: "**", pathMatch: 'full', redirectTo: "find/buses"},
+  {path: "**", pathMatch: 'full', redirectTo: "find/buses/bus"},
 ];
 
 @NgModule({

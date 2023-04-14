@@ -23,8 +23,4 @@ export class FavoritesComponent implements OnInit {
     this.listType$ = this.route.url.pipe(map(s => s[1].path))
     this.items$ = this.listType$.pipe(map(s => this.service.getByName(s))) as any
   }
-
-  get items() {
-    return this.service.items
-  }
 }

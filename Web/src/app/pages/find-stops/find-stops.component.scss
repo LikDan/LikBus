@@ -7,6 +7,12 @@
   gap: 64px;
 }
 
+gmap {
+  width: 80vw;
+  aspect-ratio: 1;
+  max-width: 500px;
+}
+
 app-stops-list {
   width: 100%;
   max-width: 500px;

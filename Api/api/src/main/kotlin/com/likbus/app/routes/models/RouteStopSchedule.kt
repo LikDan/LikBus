@@ -5,4 +5,4 @@ import com.likbus.app.stops.models.Stop
 import kotlinx.serialization.Serializable
 
 @Serializable
-data class RouteStopSchedule(val stop: Stop, val bus: Bus, val times: List<String>)
+data class RouteStopSchedule(val stop: Stop, val bus: Bus, val types: List<RouteStopScheduleType>)

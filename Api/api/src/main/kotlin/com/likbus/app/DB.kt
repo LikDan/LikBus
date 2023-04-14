@@ -1,6 +1,7 @@
 package com.likbus.app
 
 import com.likbus.app.buses.repository.tables.BusTable
+import com.likbus.app.internalization.repository.tables.InternalizationTable
 import com.likbus.app.routes.repository.tables.RouteStopsTable
 import com.likbus.app.stops.repository.tables.FullStopTable
 import com.likbus.app.stops.repository.tables.StopTable
@@ -27,5 +28,6 @@ object DB {
         SchemaUtils.create(BusTable)
         SchemaUtils.create(FullStopTable)
         SchemaUtils.create(RouteStopsTable)
+        SchemaUtils.create(InternalizationTable)
     }
 }
